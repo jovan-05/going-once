@@ -24,3 +24,5 @@ media/
 # demo-video recording/editing scripts (not part of the app)
 scripts/video/
 docs/screenshots/
+
+lab/stage3d/assets/*.png
