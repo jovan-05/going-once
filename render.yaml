@@ -1,0 +1,48 @@
+# Render Blueprint: one web service (Next + Socket.IO + API in one Node process).
+# Render > New > Blueprint > pick this repo. Fill the "sync: false" values in the dashboard.
+services:
+  - type: web
+    name: going-once
+    runtime: node
+    # Starter or above: the free plan sleeps after 15 idle minutes and has no disk,
+    # so the database (and the record of open PayPal holds) would be lost.
+    plan: starter
+    region: oregon
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /var/data/going-once.db
+      - key: PUBLIC_BASE_URL # e.g. https://going-once.onrender.com (PayPal return URLs + QR codes)
+        sync: false
+      - key: PAYPAL_API_BASE
+        value: https://api-m.sandbox.paypal.com
+      - key: PAYPAL_CLIENT_ID
+        sync: false
+      - key: PAYPAL_CLIENT_SECRET
+        sync: false
+      - key: PAYPAL_WEBHOOK_ID # create the webhook after the first deploy, then set this
+        sync: false
+      - key: PAYPAL_ITEM_CATEGORY
+        value: DONATION
+      - key: AI_PROVIDER
+        value: groq
+      - key: AI_API_KEY
+        sync: false
+      - key: SMALLEST_API_KEY # optional cloud voice (smallest.ai)
+        sync: false
+      - key: CLERK_KEY # clerk link for the seeded "riverside" room: /clerk/riverside?key=…
+        sync: false
+      - key: DEMO_BUYER_EMAIL
+        sync: false
+      - key: DEMO_BUYER_PASSWORD
+        sync: false

@@ -16,3 +16,11 @@ public/vendor/
 
 # raw screen footage for the video (large)
 media/
+
+# Only root-level Markdown is published
+*.md
+!/*.md
+
+# demo-video recording/editing scripts (not part of the app)
+scripts/video/
+docs/screenshots/
