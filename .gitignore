@@ -1,0 +1,18 @@
+node_modules/
+.next/
+.next-e2e/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+data/
+*.log
+*.tsbuildinfo
+next-env.d.ts
+
+# copied from node_modules by scripts/copy-kokoro.mjs
+public/vendor/
+
+# raw screen footage for the video (large)
+media/
