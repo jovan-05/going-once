@@ -1,0 +1,22 @@
+{
+  "name": "stage3d-lab",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "measure": "node scripts/measure.mjs"
+  },
+  "dependencies": {
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "@types/three": "0.170.0",
+    "playwright": "1.65.0",
+    "typescript": "5.8.3",
+    "vite": "6.3.5"
+  }
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stage3D lab v4</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/v4/style.css" />
+  </head>
+  <body>
+    <main id="frame" aria-label="Stage preview">
+      <canvas id="stage3d" aria-hidden="true"></canvas>
+
+      <!-- Static mock of the 2D stage, to judge readability on top of the 3D -->
+      <section id="mock" aria-label="Mock 2D stage">
+        <div class="scrim"></div>
+        <header class="lot">
+          <p class="lot-count">Lot 3 of 6</p>
+          <h1 class="lot-title">A weekend in the Nilgiris</h1>
+          <p class="lot-story">Two nights for two at a tea estate, donated by the Hills Trust</p>
+        </header>
+        <div class="qr" aria-label="QR code placeholder">
+          <div class="qr-box"><span></span></div>
+          <p>Scan to bid</p>
+        </div>
+        <div class="price-block">
+          <p class="price" id="mock-price">$1,240</p>
+          <p class="leader" id="mock-leader">paddle 14 · Asha</p>
+        </div>
+        <p class="caption" id="mock-caption">“Twelve forty to Asha by the window. Do I hear thirteen?”</p>
+      </section>
+    </main>
+
+    <aside id="panel">
+      <details open>
+        <summary>Stage3D controls</summary>
+        <div class="grid" id="buttons">
+          <button data-ev="open">Open lot</button>
+          <button data-ev="bid">Bid (random)</button>
+          <button data-ev="bot">Bot bid</button>
+          <button data-ev="outbid">Outbid</button>
+          <button data-ev="once">Going once</button>
+          <button data-ev="twice">Going twice</button>
+          <button data-ev="hammer">Hammer</button>
+          <button data-ev="sold">Sold confirmed</button>
+          <button data-ev="passed">Passed</button>
+          <button data-ev="pause">Pause</button>
+          <button data-ev="resume">Resume</button>
+        </div>
+        <div class="row">
+          <label>Paddle <input id="paddle-n" type="number" min="1" max="999" value="42" /></label>
+          <label>Name <input id="paddle-name" type="text" maxlength="60" value="Meera" /></label>
+          <button data-ev="bidn">Bid as N</button>
+        </div>
+        <div class="row">
+          <button class="primary" data-ev="demo">Run demo lot</button>
+          <button data-ev="stress">Stress</button>
+          <button data-ev="bids200">200 bids</button>
+        </div>
+        <div class="row toggles">
+          <label><input type="checkbox" id="t-reduced" /> Reduced motion</label>
+          <label><input type="checkbox" id="t-low" /> Low quality</label>
+          <label><input type="checkbox" id="t-mock" checked /> Mock overlay</label>
+          <label title="Demo lot: Ravi (paddle 7, left side) makes the late bid and wins, instead of Asha (14, right)"><input type="checkbox" id="t-ravi" /> Ravi wins demo</label>
+        </div>
+        <pre id="readout">loading…</pre>
+      </details>
+    </aside>
+    <script type="module" src="/src/v4/main.ts"></script>
+  </body>
+</html>
