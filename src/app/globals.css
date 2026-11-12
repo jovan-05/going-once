@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import "../ui/tokens.css";
+
+@theme inline {
+  --color-velvet: var(--velvet);
+  --color-curtain: var(--curtain);
+  --color-brass: var(--brass);
+  --color-parchment: var(--parchment);
+  --color-smoke: var(--smoke);
+  --color-signal: var(--signal);
+  --font-display: var(--font-big-shoulders), "Arial Narrow", sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+}
+
+html,
+body {
+  background: var(--velvet);
+  color: var(--parchment);
+  font-family: var(--font-serif);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 3px solid var(--brass);
+  outline-offset: 2px;
+}
+
+/* Hammer flash: a brass-to-parchment glint that washes across the price. */
+@keyframes price-flash {
+  0% { color: var(--brass); text-shadow: none; }
+  35% { color: var(--parchment); text-shadow: 0 0 0.12em color-mix(in srgb, var(--brass) 80%, transparent); }
+  100% { color: var(--brass); text-shadow: none; }
+}
+.price-flash {
+  animation: price-flash 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,9 @@
+/* Design tokens — docs/DESIGN.md "The Saleroom at Night". Use only these colours. */
+:root {
+  --velvet: #2b0a1d;
+  --curtain: #4a1430;
+  --brass: #d4a23f;
+  --parchment: #f6eddc;
+  --smoke: #b79aa6;
+  --signal: #3f7bff;
+}
